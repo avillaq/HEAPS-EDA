@@ -7,6 +7,8 @@ public class Test {
         heap.insert(40);
         heap.insert(50);
         heap.insert(60);
+        heap.insert(70);
+        heap.insert(80);
 
 
         System.out.println(heap);
