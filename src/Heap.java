@@ -9,7 +9,7 @@ public class Heap<T extends Comparable<T>> {
     public void insert(T item) {
         array.add(item);
         T temp;
-        for(int j=array.size(); j>1 && array.get(j).compareTo(array.get(j/2))>0; j/=2) {
+        for(int j=array.size()-1; j>1 && array.get(j).compareTo(array.get(j/2))>0; j/=2) {
             temp = array.get(j);
             array.set(j, array.get(j/2));
             array.set(j/2, temp);
@@ -17,4 +17,14 @@ public class Heap<T extends Comparable<T>> {
         }
 
     }
+    @Override
+    public String toString() {
+        String info = "";
+        for (T i: array) {
+            info += i+"\n";
+        }
+        return info;
+    }
+
+    
 }
