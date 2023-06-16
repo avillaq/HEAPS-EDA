@@ -1,9 +1,14 @@
 import java.util.ArrayList;
 
-public class Heap<E> {
-    private ArrayList<E> array;
-
+public class Heap<T> {
+    private ArrayList<T> array;
     public Heap(){
-        array = new ArrayList<E>();
+        array = new ArrayList<T>();
+   
+    }
+    public void insert(T item, T[] a) {
+        array.add(item);
+        T temp;
+
     }
 }
