@@ -18,26 +18,29 @@ public class Heap<T extends Comparable<T>> {
             array.set((j - 1) / 2, temp);
 
         }
-
     }
 
     public void remove() {
-        T m = array.get(0); //La variable m lleva el máximo
+
         array.set(0, array.get(getTamaño() - 1));
+        array.remove(getTamaño()-1);
+
         int j = 1;
-        int n = getTamaño()-1;
-        while(2*j < n) { // mientras tenga algún hijo
-            int k = 2*j; // el hijo izquierdo
-            if ( k+1 <= n && array.get(k+1).compareTo(array.get(k))>0)
+
+        int n = getTamaño();
+        while(2*j-1 < n) { // mientras tenga algún hijo
+            int k = 2*j-1; // el hijo izquierdo
+            if ( k+1 < n && array.get(k+1).compareTo(array.get(k))>0)
                 k = k+1; // el hijo derecho es el mayor
-            if ( array.get(j).compareTo(array.get(k)) > 0)
+            if (array.get(j-1).compareTo(array.get(k)) > 0)
                 break; // es mayor que ambos hijos
-            T temp = array.get(j);
-            array.set(j, array.get(k));
+            T temp = array.get(j-1);
+            array.set(j-1, array.get(k));
             array.set(k, temp);
-            j = k; // lo intercambiamos con el mayor hijo
+            j = k+1; // lo intercambiamos con el mayor hijo
         }
     }
+    
     public int getTamaño(){
         return array.size();
     }
