@@ -15,5 +15,8 @@ public class PriorityQueueHeap<T extends Comparable<T>>{
         heapMax.remove();
         return aux.getData();
     }
+    public T front() {
+        return heapMax.getMax().getData();
+    }
     
 }
