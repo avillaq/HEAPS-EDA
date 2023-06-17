@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 
-public class Heap<T extends Comparable<T>> {
+public class HeapMax<T extends Comparable<T>> {
     private ArrayList<T> array;
 
-    public Heap() {
+    public HeapMax() {
         array = new ArrayList<T>();
 
     }

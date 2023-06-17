@@ -1,6 +1,6 @@
-public class Test {
+public class TestHeap {
     public static void main(String[] args) {
-        Heap<Integer> heap = new Heap<Integer>();
+        HeapMax<Integer> heap = new HeapMax<Integer>();
 
         /*
          * heap.insert(16);
