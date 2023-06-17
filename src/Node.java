@@ -1,4 +1,4 @@
-public class Node<T extends Comparable<T>> implements Comparable<T> {
+public class Node<T extends Comparable<T>> implements Comparable<Node<T>> {
     private T data;
     private int priority;
 
@@ -6,10 +6,18 @@ public class Node<T extends Comparable<T>> implements Comparable<T> {
         this.data = data;
         this.priority = priority;
     }
+    
+    public T getData() {
+        return data;
+    }
+
+    public int getPriority() {
+        return priority;
+    }
 
     @Override
-    public int compareTo(T elem) {
-        
+    public int compareTo(Node<T> elem) {
+        return priority>elem.getPriority() ? 1:-1;
     }
         
 }
