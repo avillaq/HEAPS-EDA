@@ -43,6 +43,9 @@ public class HeapMax<T extends Comparable<T>> {
     public T getMax(){
         return array.get(0);
     }
+    public T getMin(){
+        return array.get(getTamaño()-1);
+    }
     
     public int getTamaño(){
         return array.size();
