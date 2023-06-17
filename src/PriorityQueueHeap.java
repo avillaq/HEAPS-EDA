@@ -1,13 +1,17 @@
 public class PriorityQueueHeap<T extends Comparable<T>>{
-    private HeapMax<Node<T>> Heap;
+    private HeapMax<Node<T>> heapMax;
 
     public PriorityQueueHeap() {
-        Heap = new HeapMax<Node<T>>();
+        heapMax = new HeapMax<Node<T>>();
     }
 
     public void enqueue(T x, int p) {
         Node<T> elem = new Node<T>(x, p);
-        Heap.insert(elem);
+        heapMax.insert(elem);
+    }
+
+    public T dequeue() {
+        heapMax.remove();
     }
     
 }

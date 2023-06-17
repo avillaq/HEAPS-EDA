@@ -40,6 +40,9 @@ public class HeapMax<T extends Comparable<T>> {
             j = k+1; // lo intercambiamos con el mayor hijo
         }
     }
+    public T getMax(){
+        return array.get(0);
+    }
     
     public int getTamaño(){
         return array.size();
