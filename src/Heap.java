@@ -2,30 +2,53 @@ import java.util.ArrayList;
 
 public class Heap<T extends Comparable<T>> {
     private ArrayList<T> array;
-    public Heap(){
+
+    public Heap() {
         array = new ArrayList<T>();
-   
+
     }
+
     public void insert(T item) {
         array.add(item);
         T temp;
 
-        for(int j=array.size()-1; j>0 && array.get(j).compareTo(array.get((j-1)/2))>0; j=(j-1)/2) {
+        for (int j = getTamaño() - 1; j > 0 && array.get(j).compareTo(array.get((j - 1) / 2)) > 0; j = (j - 1) / 2) {
             temp = array.get(j);
-            array.set(j, array.get((j-1)/2));
-            array.set((j-1)/2, temp);
+            array.set(j, array.get((j - 1) / 2));
+            array.set((j - 1) / 2, temp);
 
         }
 
     }
+
+    public void remove() {
+        T m = array.get(0); //La variable m lleva el máximo
+        array.set(0, array.get(getTamaño() - 1));
+        int j = 1;
+        int n = getTamaño()-1;
+        while(2*j < n) { // mientras tenga algún hijo
+            int k = 2*j; // el hijo izquierdo
+            if ( k+1 <= n && array.get(k+1).compareTo(array.get(k))>0)
+                k = k+1; // el hijo derecho es el mayor
+            if ( array.get(j).compareTo(array.get(k)) > 0)
+                break; // es mayor que ambos hijos
+            T temp = array.get(j);
+            array.set(j, array.get(k));
+            array.set(k, temp);
+            j = k; // lo intercambiamos con el mayor hijo
+        }
+    }
+    public int getTamaño(){
+        return array.size();
+    }
+
     @Override
     public String toString() {
         String info = "";
-        for (T i: array) {
-            info += i+"\n";
+        for (T i : array) {
+            info += i + "\n";
         }
         return info;
     }
 
-    
 }
