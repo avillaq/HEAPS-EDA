@@ -11,7 +11,9 @@ public class PriorityQueueHeap<T extends Comparable<T>>{
     }
 
     public T dequeue() {
+        Node<T> aux = heapMax.getMax();
         heapMax.remove();
+        return aux.getData();
     }
     
 }
